@@ -307,9 +307,10 @@ if($opcion == 1){
 
 }
 
-//Enviar el array final en formato json a JS ---> DESCOMENTAR
+// Enviar el array final en formato json a JS ---> DESCOMENTAR
 // print json_encode($data, JSON_UNESCAPED_UNICODE);
-// $conexion = NULL; // Cerrando conexion ----> DESCOMENTAR
+// echo $data;
+$conexion = NULL; // Cerrando conexion ----> DESCOMENTAR
 
 ?>
 
@@ -355,7 +356,7 @@ if($opcion == 1){
                                     <tbody>
                                         <?php
                                 foreach($data as $dat){
-                              ?>
+                                            ?>
                                         <tr>
                                             <td><?php echo $dat['numParte'] ?></td>
                                             <td><?php echo $dat['nomComp'] ?></td>
@@ -368,7 +369,7 @@ if($opcion == 1){
                                             <td><?php echo $dat['cantCajasXTarima'] ?></td>
                                         </tr>
                                         <?php
-                                  }
+                                }
                                 ?>
                                     </tbody>
                                 </table>
