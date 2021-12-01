@@ -26,7 +26,7 @@ if($opcion == 1){
   */
 }
 //Enviar el array final en formato json a JS ---> DESCOMENTAR
-print json_encode($data, JSON_UNESCAPED_UNICODE);
+print json_encode($data);
 $conexion = NULL; // Cerrando conexion ----> DESCOMENTAR
 
 ?>
