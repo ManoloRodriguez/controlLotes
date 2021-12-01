@@ -46,7 +46,7 @@ $(document).ready(function(){
   $("#formCheck").submit(function(e){ // ENVIO DE PARAMETROS
     e.preventDefault();
     // DATOS DEL NUMERO DE PARTE.
-    numParte = $.trim($("#numParte").val(numParte));
+    numParte = $.trim($("#numParte").val());
     nomComp = $.trim($("#nomComp").val());
     provID_PC = $.trim($("#provID_PC").val());
     cantCajas = $.trim($("#cantCajas").val());
