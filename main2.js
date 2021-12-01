@@ -11,25 +11,32 @@ $(document).ready(function(){
         url: "Modelo(conexion)/crud2.php",
         type: "POST",
         dataType: "json",
-        data: {opcion: opcion, buscar: buscar, opt: opt},
+        data: {opcion: opcion, buscar: buscar, opt: opt,},
 
         success: function(data){
+
+          // OBTENER LOS VALORES DE LA SENTENCIA SQL Y GUARDAR EN CADA INPUT HTML
+          // UTILIZAR JSON.PARSE()
+          // VER MAS TUTORIALES
+
           swal("Datos enviados!!", "Presiona OK.", "success");
-          console.log(data);
 
-          for(i = 0; i <= 10; i++){
+          const arreglo = data;
 
-            console.log(data[i,i]);
+          const obj = JSON.parse(arreglo);
 
-          }
+          document.getElementById("nomComp");
 
           /*
-          console.log(data);
-          imprimir = data;
-          variable = imprimir.typeof(String);
-          console.log(variable);
+          arr = data[0];
+          // console.log(data);
+
+          // console.log(data);
+          // console.log(arr);
+          valor = JSON.parse('{data}');
+          console.log(valor);
+          nomComp = $.trim($("#nomComp").val(valor));  
           */
-          // console.log(nomComp = $.trim($("#nomComp").val(data)));
         }
       });
 
