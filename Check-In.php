@@ -288,31 +288,7 @@
                 <!-- $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ -->
 
 
-                <?php
 
-include_once 'Modelo(conexion)/conexion.php';
-$objeto = new Conexion();
-$conexion = $objeto->Conectar();
-
-$buscar = (isset($_POST['buscar'])) ? $_POST['buscar'] : '';
-$opcion = (isset($_POST['opcion'])) ? $_POST['opcion'] : '';
-
-if($opcion == 1){
-  
-  $prueba = "SELECT * FROM lista_maestra WHERE numParte = '$buscar' ";
-  $resultado = $conexion->prepare($prueba);
-  $resultado->execute();
-  $data = $resultado->fetchAll(PDO::FETCH_ASSOC);
-  
-
-}
-
-// Enviar el array final en formato json a JS ---> DESCOMENTAR
-// print json_encode($data, JSON_UNESCAPED_UNICODE);
-// echo $data;
-$conexion = NULL; // Cerrando conexion ----> DESCOMENTAR
-
-?>
 
 
 
@@ -322,61 +298,10 @@ $conexion = NULL; // Cerrando conexion ----> DESCOMENTAR
                             <label class="col-form-label">Buscar Numero de Parte:</label><br>
                             <input type="text" class="form-control" id="buscar">
                             <button type="button" class="btn btn-dark" id="btnBuscar">Buscar</button>
-                       
+
                         </div>
                     </div>
 
-
-                    <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="table-responsive">
-                                <table id="tablaEmpleados" class="table table-striped table-bordered table-condensed"
-                                    style="width:100%">
-                                    <thead class="text-center">
-                                        <tr>
-                                            <th>Numero de Parte</th>
-                                            <th>Nombre Componente</th>
-                                            <th>Proveedor_Id PC</th>
-                                            <th>Cantidad Cajas</th>
-                                            <th>Cantidad por Caja</th>
-                                            <th>Total</th>
-                                            <th>Proveedor_Nombre</th>
-                                            <th>Cantidad_Lote</th>
-                                            <th>Cantidad de Cajas por Tarima</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                foreach($data as $dat){
-                                            ?>
-                                        <tr>
-                                            <td><?php echo $dat['numParte'] ?></td>
-                                            <td><?php echo $dat['nomComp'] ?></td>
-                                            <td><?php echo $dat['provID_PC'] ?></td>
-                                            <td><?php echo $dat['cantCajas'] ?></td>
-                                            <td><?php echo $dat['cantXCajas'] ?></td>
-                                            <td><?php echo $dat['Total'] ?></td>
-                                            <td><?php echo $dat['provNombre'] ?></td>
-                                            <td><?php echo $dat['cantLote'] ?></td>
-                                            <td><?php echo $dat['cantCajasXTarima'] ?></td>
-                                        </tr>
-                                        <?php
-                                }
-                                ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
 
                     <!-- MODAL REGISTRO DE HORAS -->
@@ -400,7 +325,7 @@ $conexion = NULL; // Cerrando conexion ----> DESCOMENTAR
                                             <label for="numParte" class="col-form-label">Numero de Parte:</label>
                                             <input type="text" class="form-control" id="numParte" disabled="disabled">
                                         </div>
-                                        
+
                                         <div class="form-group">
                                             <label for="nomComp" class="col-form-label">Nombre Componente:</label>
                                             <input type="text" class="form-control" id="nomComp" disabled="disabled">
@@ -418,11 +343,12 @@ $conexion = NULL; // Cerrando conexion ----> DESCOMENTAR
 
                                         <div class="form-group">
                                             <label for="cantXCajas" class="col-form-label">Cantidad por Caja:</label>
-                                            <input type="number" class="form-control" id="cantXCajas" disabled="disabled">
+                                            <input type="number" class="form-control" id="cantXCajas"
+                                                disabled="disabled">
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="Total" class="col-form-label">Total`:</label>
+                                            <label for="Total" class="col-form-label">Total:</label>
                                             <input type="number" class="form-control" id="Total" disabled="disabled">
                                         </div>
 
@@ -437,8 +363,10 @@ $conexion = NULL; // Cerrando conexion ----> DESCOMENTAR
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="cantCajasXTarima" class="col-form-label">Cantidad de Cajas por Tarima:</label>
-                                            <input type="number" class="form-control" id="cantCajasXTarima" disabled="disabled">
+                                            <label for="cantCajasXTarima" class="col-form-label">Cantidad de Cajas por
+                                                Tarima:</label>
+                                            <input type="number" class="form-control" id="cantCajasXTarima"
+                                                disabled="disabled">
                                         </div>
                                         <!-- End de informacion de Lote -->
 
