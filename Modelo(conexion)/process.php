@@ -4,7 +4,7 @@ include_once 'conexion.php';
 $objeto = new Conexion();
 $conexion = $objeto->Conectar();
 
-$opt = (isset($_POST['opt'])) ? $_POST['opt'] : '';
+$opt = (isset($_POST['opt'])) ? $_POST['opt'] : ''; // KEY PARA HACER EL INSERT EN TABLA lista_registro.
 
 // VALORES DEL MODAL:
 $numParte = (isset($_POST['numParte'])) ? $_POST['numParte'] : '';
@@ -17,50 +17,33 @@ $provNombre = (isset($_POST['provNombre'])) ? $_POST['provNombre'] : '';
 $cantLote = (isset($_POST['cantLote'])) ? $_POST['cantLote'] : '';
 $cantCajasXTarima = (isset($_POST['cantCajasXTarima'])) ? $_POST['cantCajasXTarima'] : '';
 
+// CONVERTIR VALORES A INTEGER.
 intval($cantCajas);
 intval($cantXCajas);
-intval($numParte);
-// OPERACION PARA TOTAL DE PIEZAS X CAJA.
-$totalCajas = $cantCajas * $cantXCajas;
-//VERIFICAR REGISTRO EN BD
 
-$verificar = "SELECT numParte FROM lista_registro WHERE numParte = '$numParte' ";
+$totalCajas = $cantCajas * $cantXCajas; // OPERACION PARA TOTAL DE PIEZAS X CAJA.
 
-$resultado = $conexion->prepare($verificar);
-$resultado->execute();
-$data = $resultado->fetchAll(PDO::FETCH_ASSOC);
-
-intval($verificar);
-
-if($verificar == $numParte){
-  //Enviar el array final en formato json a JS ---> DESCOMENTAR
-  print json_encode($data);
-  $conexion = NULL; // Cerrando conexion ----> DESCOMENTAR
-  print("Numero de parte ya registrado");
-
-}else{
-  // INSERTAR VALOR A LA NUEVA TABLA
-  switch($opt){
-    case 1:
-
-      $guardar = "INSERT INTO lista_registro (numParte, nomComp, provID_PC, cantCajas, cantXCajas, Total, provNombre, cantLote, cantCajasXTarima) VALUES ('$numParte', '$nomComp', '$provID_PC', '$cantCajas', '$cantXCajas', '$totalCajas', '$provNombre', '$cantLote', '$cantCajasXTarima')";
-        
-      $resultado = $conexion->prepare($guardar);
-      $resultado->execute();
-      $data = $resultado->fetchAll(PDO::FETCH_ASSOC);
-  
-        
-      // INGRESAR FECHA DE CAPTURA DE CANTIDAD DE CAJAS.
-      $registroFecha = "UPDATE lista_registro SET Fecha = NOW() ";
-  
-      $resultado = $conexion->prepare($registroFecha);
-      $resultado->execute();
-      $data = $resultado->fetchAll(PSO::FETCH_ASSOC);
-  
-    break;
+// INSERTAR REGISTRO EN NUEVA TABLA.
+switch($opt){
+  case 1:
     
-  }
+    $guardar = "INSERT INTO lista_registro (numParte, nomComp, provID_PC, cantCajas, cantXCajas, Total, provNombre, cantLote, cantCajasXTarima) VALUES ('$numParte', '$nomComp', '$provID_PC', '$cantCajas', '$cantXCajas', '$totalCajas', '$provNombre', '$cantLote', '$cantCajasXTarima')";
+      
+    $resultado = $conexion->prepare($guardar);
+    $resultado->execute();
+    $data = $resultado->fetchAll(PDO::FETCH_ASSOC);
+      
+    // INGRESAR FECHA DE CAPTURA DE CANTIDAD DE CAJAS.
+    $registroFecha = "UPDATE lista_registro SET Fecha = NOW() WHERE numParte = '$numParte'";
+  
+    $resultado = $conexion->prepare($registroFecha);
+    $resultado->execute();
+    $data = $resultado->fetchAll(PSO::FETCH_ASSOC);
+  
+  break;
+    
 }
+
 //Enviar el array final en formato json a JS ---> DESCOMENTAR
 print json_encode($data);
 $conexion = NULL; // Cerrando conexion ----> DESCOMENTAR
