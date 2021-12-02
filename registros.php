@@ -67,15 +67,15 @@
                 <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
                     aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Productividad</span>
+                    <span>Control Lotes</span>
                 </a>
                 <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Opciones:</h6>
-                        <a class="collapse-item active" href="buttons.php">Registros</a>
-                        <a class="collapse-item" href="Check-In.php">Check-In</a>
-                        <a class="collapse-item" href="cards.php">Cards</a>
+                        <a class="collapse-item active" href="registros.php">Registros</a>
+                        <a class="collapse-item" href="buscarNumParte.php">Buscar Num. Parte</a>
+                        <!-- <a class="collapse-item" href="cards.php">Cards</a> -->
                         <!-- <a class="collapse-item" href="registros.php">Registros</a> -->
                     </div>
                 </div>
@@ -293,7 +293,7 @@ include_once 'Modelo(conexion)/conexion.php';
 $objeto = new Conexion();
 $conexion = $objeto->Conectar();
 
-$consulta = "SELECT numParte, nomComp, provID_PC, cantCajas, cantXCajas, Total, provNombre, cantLote, cantCajasXTarima FROM lista_maestra ";
+$consulta = "SELECT numParte, nomComp, provID_PC, cantCajas, cantXCajas, Total, provNombre, cantLote, cantCajasXTarima, Fecha FROM lista_registro ";
 $resultado = $conexion->prepare($consulta);
 $resultado->execute();
 $data = $resultado->fetchAll(PDO::FETCH_ASSOC);
@@ -311,7 +311,7 @@ $data = $resultado->fetchAll(PDO::FETCH_ASSOC);
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="table-responsive">
-                                <table id="tablaEmpleados" class="table table-striped table-bordered table-condensed"
+                                <table id="controlLotes" class="table table-striped table-bordered table-condensed"
                                     style="width:100%">
                                     <thead class="text-center">
                                         <tr>
@@ -324,6 +324,7 @@ $data = $resultado->fetchAll(PDO::FETCH_ASSOC);
                                             <th>Proveedor_Nombre</th>
                                             <th>Cantidad_Lote</th>
                                             <th>Cantidad de Cajas por Tarima</th>
+                                            <th>Fecha</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -340,6 +341,7 @@ $data = $resultado->fetchAll(PDO::FETCH_ASSOC);
                                             <td><?php echo $dat['provNombre'] ?></td>
                                             <td><?php echo $dat['cantLote'] ?></td>
                                             <td><?php echo $dat['cantCajasXTarima'] ?></td>
+                                            <td><?php echo $dat['Fecha'] ?></td>
                                         </tr>
                                         <?php
                                   }
@@ -414,7 +416,7 @@ $data = $resultado->fetchAll(PDO::FETCH_ASSOC);
             <!-- datatables JS -->
             <script type="text/javascript" src="vendor/datatables/datatables.min.js"></script>
             <!-- codigo propio JS -->
-            <script type="text/javascript" src="main.js"></script>
+            <script type="text/javascript" src="registros.js"></script>
 
 </body>
 
