@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  tablaEmpleados = $("#tablaEmpleados").DataTable({
+  controlLotes = $("#controlLotes").DataTable({ // cambiar controlLotes por tablaEmpleados.
 
     // Para cambiar el lenguaje a español
   "language":{
