@@ -1,4 +1,3 @@
-
 $(document).ready(function(){
   // $(document).on("click", ".btnBuscar", function(){
   $("#btnBuscar").click(function(){
@@ -20,7 +19,7 @@ $(document).ready(function(){
           numParte = $.trim($("#numParte").val(data[0].numParte));      
           nomComp = $.trim($("#nomComp").val(data[0].nomComp));
           provID_PC = $.trim($("#provID_PC").val(data[0].provID_PC));
-          cantCajas = $.trim($("#cantCajas").val(data[0].cantCajas));
+          // cantCajas = $.trim($("#cantCajas").val(data[0].cantCajas));
           cantXCajas = $.trim($("#cantXCajas").val(data[0].cantXCajas));
           Total = $.trim($("#Total").val(data[0].Total));
           provNombre = $.trim($("#provNombre").val(data[0].provNombre));
@@ -29,6 +28,8 @@ $(document).ready(function(){
           
           console.log(data);
 
+          swal("Datos mandados y obtenidos correctamente!", "Presiona OK para continuar.", "success");
+
         }
       });
       // Estilos CSS
@@ -36,28 +37,28 @@ $(document).ready(function(){
       $(".modal-header").css("color", "white");
       $(".modal-title").text("Control de Lotes");
       $("#checkIn").modal("show");
-      // $("#checkIn").modal("hide");
       
     }else{swal("Campo vacio!", "Ingrese el numero de parte nuevamente", "error");}
-    
-    
-  });
+    $("#buscar").val('');
+  });    
 
   $("#formCheck").submit(function(e){ // ENVIO DE PARAMETROS
     e.preventDefault();
+    
+    opt = 1;
     // DATOS DEL NUMERO DE PARTE.
     numParte = $.trim($("#numParte").val());
     nomComp = $.trim($("#nomComp").val());
     provID_PC = $.trim($("#provID_PC").val());
+        
     cantCajas = $.trim($("#cantCajas").val());
+        
     cantXCajas = $.trim($("#cantXCajas").val());
     Total = $.trim($("#Total").val());
     provNombre = $.trim($("#provNombre").val());
     cantLote = $.trim($("#cantLote").val());
     cantCajasXTarima = $.trim($("#cantCajasXTarima").val());
-
-    opt = 2; // key para enviar datos a lista_registro.
-
+    
     $.ajax({
       url: "Modelo(conexion)/process.php",
       type: "POST",
@@ -65,24 +66,13 @@ $(document).ready(function(){
       data: {numParte: numParte, nomComp: nomComp, provID_PC: provID_PC, cantCajas: cantCajas, cantXCajas: cantXCajas, Total: Total, provNombre: provNombre, cantLote: cantLote, cantCajasXTarima: cantCajasXTarima, opt: opt},
 
       success: function(data){
-        swal("Datos enviados!", "Pulsa OK.", "success");
         console.log(data);
+        swal("Datos enviados! INSERT TO", "Presiona OK para continuar.", "success");     
 
       }
     });
-  });
-  $("#checkIn").modal("hide"); // CERRAR MODAL.
+
+    $("#checkIn").modal("hide");
+
+  });  
 });
-
-/*
-// DATA TABLE
-function mostrarDatos(){
-  $('#tablaEmpleados').DataTable({
-
-  });
-}
-*/
-
-
-  
-  
