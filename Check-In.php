@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Check-In</title>
+    <title>Buscar Numero de Parte</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -44,7 +44,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Product <sup>2.0</sup></div>
+                <div class="sidebar-brand-text mx-3">control_Lotes <sup>1.0</sup></div>
             </a>
 
             <!-- Divider -->
@@ -72,15 +72,15 @@
                 <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
                     aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Productividad</span>
+                    <span>Control Lotes</span>
                 </a>
-                <div id="collapseTwo" class="collapse hide" aria-labelledby="headingTwo"
+                <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Opciones:</h6>
-                        <a class="collapse-item" href="buttons.php">Registros</a>
-                        <a class="collapse-item active" href="Check-In.php">Check-In</a>
-                        <a class="collapse-item" href="cards.php">Cards</a>
+                        <a class="collapse-item" href="registros.php">Registros</a>
+                        <a class="collapse-item active" href="buscarNumParte.php">Buscar Num. Parte</a>
+                        <!-- <a class="collapse-item" href="cards.php">Cards</a> -->
                         <!-- <a class="collapse-item" href="registros.php">Registros</a> -->
                     </div>
                 </div>
@@ -407,7 +407,7 @@
                     <!-- datatables JS -->
                     <script type="text/javascript" src="vendor/datatables/datatables.min.js"></script>
                     <!-- codigo propio JS -->
-                    <script type="text/javascript" src="main2.js"></script>
+                    <script type="text/javascript" src="buscarNumParte.js"></script>
 
 </body>
 
