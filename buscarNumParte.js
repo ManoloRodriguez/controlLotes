@@ -29,7 +29,7 @@ $(document).ready(function(){
       $(".modal-header").css("background-color", "#85929E");
       $(".modal-header").css("color", "white");
       $(".modal-title").text("Control de Lotes");
-      $("#checkIn").modal("show");
+      $("#checkIn").modal({backdrop: 'static', keyboard: false,show: true });
       
     }else{swal("Campo vacio!", "Ingrese el numero de parte nuevamente", "error");}
 
