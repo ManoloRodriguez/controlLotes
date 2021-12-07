@@ -67,7 +67,7 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
 
-            
+
             <li class="nav-item active">
                 <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
                     aria-controls="collapseTwo">
@@ -290,124 +290,119 @@
                 <!-- $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ -->
 
 
-
-
-
-
                 <div class="container">
                     <div class="modal-body">
                         <div class="form-group">
                             <label class="col-form-label">Buscar Numero de Parte:</label><br>
-                            <input type="text" class="form-control" id="buscar">
-                            <button type="button" class="btn btn-dark" id="btnBuscar">Buscar</button>
-
+                            <input type="text" class="form-control" id="buscar" placeholder="Escanear Qr.">
                         </div>
+                        <button type="button" class="btn btn-dark" id="btnBuscar">Buscar</button>
+
                     </div>
+                </div>
 
 
-
-                    <!-- MODAL REGISTRO DE HORAS -->
-                    <div class="modal fade" id="checkIn" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel"></h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                            aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-
-
-                                <form id="formCheck">
-                                    <div class="modal-body">
-
-                                        <!-- Begin de informacion del empleado -->
-                                        <div class="form-group">
-                                            <label for="numParte" class="col-form-label">Numero de Parte:</label>
-                                            <input type="text" class="form-control" id="numParte" disabled="disabled">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="nomComp" class="col-form-label">Nombre Componente:</label>
-                                            <input type="text" class="form-control" id="nomComp" disabled="disabled">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="provID_PC" class="col-form-label">Proveedor_Id PC:</label>
-                                            <input type="text" class="form-control" id="provID_PC" disabled="disabled">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="cantCajas" class="col-form-label">Cantidad Cajas:</label>
-                                            <input type="number" class="form-control" id="cantCajas">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="cantXCajas" class="col-form-label">Cantidad por Caja:</label>
-                                            <input type="number" class="form-control" id="cantXCajas"
-                                                disabled="disabled">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="Total" class="col-form-label">Total:</label>
-                                            <input type="number" class="form-control" id="Total" disabled="disabled">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="provNombre" class="col-form-label">Proveedor_Nombre:</label>
-                                            <input type="text" class="form-control" id="provNombre" disabled="disabled">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="cantLote" class="col-form-label">Cantidad_Lote:</label>
-                                            <input type="number" class="form-control" id="cantLote" disabled="disabled">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="cantCajasXTarima" class="col-form-label">Cantidad de Cajas por
-                                                Tarima:</label>
-                                            <input type="number" class="form-control" id="cantCajasXTarima"
-                                                disabled="disabled">
-                                        </div>
-                                        <!-- End de informacion de Lote -->
-
-                                        <!-- Begin Footer -->
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-light"
-                                                data-dismiss="modal">Cancelar</button>
-                                            <button type="submit" id="btnGuardar" class="btn btn-dark">Guardar</button>
-                                        </div>
-
-                                        <!-- End Footer -->
-
-                                </form>
-
+                <!-- MODAL REGISTRO DE HORAS -->
+                <div class="modal fade" id="checkIn" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel"></h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                        aria-hidden="true">&times;</span>
+                                </button>
                             </div>
+
+
+                            <form id="formCheck">
+                                <div class="modal-body">
+
+                                    <!-- Begin de informacion del empleado -->
+                                    <div class="form-group">
+                                        <label for="numParte" class="col-form-label">Numero de Parte:</label>
+                                        <input type="text" class="form-control" id="numParte" disabled="disabled">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="nomComp" class="col-form-label">Nombre Componente:</label>
+                                        <input type="text" class="form-control" id="nomComp" disabled="disabled">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="provID_PC" class="col-form-label">Proveedor_Id PC:</label>
+                                        <input type="text" class="form-control" id="provID_PC" disabled="disabled">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="cantCajas" class="col-form-label">Cantidad Cajas:</label>
+                                        <input type="number" class="form-control" id="cantCajas">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="cantXCajas" class="col-form-label">Cantidad por Caja:</label>
+                                        <input type="number" class="form-control" id="cantXCajas" disabled="disabled">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="Total" class="col-form-label">Total:</label>
+                                        <input type="number" class="form-control" id="Total" disabled="disabled">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="provNombre" class="col-form-label">Proveedor_Nombre:</label>
+                                        <input type="text" class="form-control" id="provNombre" disabled="disabled">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="cantLote" class="col-form-label">Cantidad_Lote:</label>
+                                        <input type="number" class="form-control" id="cantLote" disabled="disabled">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="cantCajasXTarima" class="col-form-label">Cantidad de Cajas por
+                                            Tarima:</label>
+                                        <input type="number" class="form-control" id="cantCajasXTarima"
+                                            disabled="disabled">
+                                    </div>
+                                    <!-- End de informacion de Lote -->
+
+                                    <!-- Begin Footer -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-light"
+                                            data-dismiss="modal">Cancelar</button>
+                                        <button type="submit" id="btnGuardar" class="btn btn-dark">Guardar</button>
+                                    </div>
+
+                                    <!-- End Footer -->
+
+                            </form>
+
                         </div>
                     </div>
-                    <!--MODAL REGISTRO DE HORAS -->
+                </div>
+                <!--MODAL REGISTRO DE HORAS -->
 
 
-                    <!-- Scroll to Top Button-->
-                    <a class="scroll-to-top rounded" href="#page-top">
-                        <i class="fas fa-angle-up"></i>
-                    </a>
+                <!-- Scroll to Top Button-->
+                <a class="scroll-to-top rounded" href="#page-top">
+                    <i class="fas fa-angle-up"></i>
+                </a>
 
-                    <!-- Bootstrap core JavaScript-->
-                    <script src="vendor/jquery/jquery.min.js"></script>
-                    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+                <!-- Bootstrap core JavaScript-->
+                <script src="vendor/jquery/jquery.min.js"></script>
+                <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-                    <!-- Core plugin JavaScript-->
-                    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+                <!-- Core plugin JavaScript-->
+                <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-                    <!-- Custom scripts for all pages-->
-                    <script src="js/sb-admin-2.min.js"></script>
+                <!-- Custom scripts for all pages-->
+                <script src="js/sb-admin-2.min.js"></script>
 
-                    <!-- datatables JS -->
-                    <script type="text/javascript" src="vendor/datatables/datatables.min.js"></script>
-                    <!-- codigo propio JS -->
-                    <script type="text/javascript" src="buscarNumParte.js"></script>
+                <!-- datatables JS -->
+                <script type="text/javascript" src="vendor/datatables/datatables.min.js"></script>
+                <!-- codigo propio JS -->
+                <script type="text/javascript" src="buscarNumParte.js"></script>
 
 </body>
 
