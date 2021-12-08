@@ -40,6 +40,7 @@ $(document).ready(function(){
   $("#formCheck").submit(function(e){ // ENVIO DE PARAMETROS
     e.preventDefault();
     opt = 1;
+
     // DATOS DEL NUMERO DE PARTE.
     numParte = $.trim($("#numParte").val());
     nomComp = $.trim($("#nomComp").val());
@@ -57,16 +58,13 @@ $(document).ready(function(){
       dataType: "json",
       data: {numParte: numParte, nomComp: nomComp, provID_PC: provID_PC, cantCajas: cantCajas, cantXCajas: cantXCajas, Total: Total, provNombre: provNombre, cantLote: cantLote, cantCajasXTarima: cantCajasXTarima, opt: opt},
 
-      success: function(data){
-        console.log(data);
-
+      success: function(){
+        swal("Datos enviados a la tabla lista_registros!!", "Presiona OK para continuar.", "success");
+        
       }
     });
 
     $("#checkIn").modal("hide"); // CERRAR VENTANA DEL MODAL.
-    
-    // TRATAR DE PONER EL SWAL EN SUCCESS: FUNCTION DE FORMCHECK.
-    swal("Datos enviados a la tabla lista_registros!!", "Presiona OK para continuar.", "success");     
-
-  });  
+  
+  });
 });
