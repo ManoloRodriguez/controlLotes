@@ -38,7 +38,7 @@ switch($opt){
   
     $resultado = $conexion->prepare($registroFecha);
     $resultado->execute();
-    $data = $resultado->fetchAll(PSO::FETCH_ASSOC);
+    $data = $resultado->fetchAll(PDO::FETCH_ASSOC);
   
   break;
     
