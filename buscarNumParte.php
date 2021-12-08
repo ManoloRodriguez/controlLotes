@@ -293,8 +293,8 @@
                 <div class="container">
                     <div class="modal-body">
                         <div class="form-group">
-                            <label class="col-form-label">Buscar Numero de Parte:</label><br>
-                            <input type="text" class="form-control" id="buscar" placeholder="Escanear Qr.">
+                            <span class="label label-default">Buscar: </span>
+                            <input type="text" class="form-control" id="buscar" placeholder="Ingresar Numero de Parte.">
                         </div>
                         <button type="button" class="btn btn-dark" id="btnBuscar">Buscar</button>
 
