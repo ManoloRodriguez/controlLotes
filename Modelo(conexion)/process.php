@@ -25,17 +25,22 @@ $totalCajas = $cantCajas * $cantXCajas; // OPERACION PARA TOTAL DE PIEZAS X CAJA
 
 // INSERTAR REGISTRO EN NUEVA TABLA.
 switch($opt){
-  case 1:
-    
+  case 1:    
     $guardar = "INSERT INTO lista_registro (numParte, nomComp, provID_PC, cantCajas, cantXCajas, Total, provNombre, cantLote, cantCajasXTarima) VALUES ('$numParte', '$nomComp', '$provID_PC', '$cantCajas', '$cantXCajas', '$totalCajas', '$provNombre', '$cantLote', '$cantCajasXTarima')";
       
     $resultado = $conexion->prepare($guardar);
     $resultado->execute();
     $data = $resultado->fetchAll(PDO::FETCH_ASSOC);
-      
+    
+    $densoLot = "SELECT DensoLot FROM lista_registro WHERE numParte = '$numParte' ";
+    $resultado = $conexion->prepare($densoLot);
+    $resultado->execute();
+    $data = $resultado->fetchAll(PDO::FETCH_ASSOC);
+
+    intval($densoLot);
+
     // INGRESAR FECHA DE CAPTURA DE CANTIDAD DE CAJAS.
-    $registroFecha = "UPDATE lista_registro SET Fecha = NOW() WHERE numParte = '$numParte'";
-  
+    $registroFecha = "UPDATE lista_registro SET DensoLot = CONCAT('LOT', '_', Id), Fecha = NOW() WHERE numParte = '$numParte'";  
     $resultado = $conexion->prepare($registroFecha);
     $resultado->execute();
     $data = $resultado->fetchAll(PDO::FETCH_ASSOC);
@@ -43,7 +48,6 @@ switch($opt){
   break;
     
 }
-
 //Enviar el array final en formato json a JS ---> DESCOMENTAR
 print json_encode($data);
 $conexion = NULL; // Cerrando conexion ----> DESCOMENTAR
