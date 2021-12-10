@@ -8,34 +8,47 @@ $(document).ready(function(){
         url: "Modelo(conexion)/buscarNumParte.php",
         type: "POST",
         dataType: "json",
-        data: {opcion: opcion, buscar: buscar},
+        data:{
+          opcion: opcion,
+          buscar: buscar
+        },
 
         success: function(data){
           // MOSTRAR VALORES EN EL MODAL
-          numParte = $.trim($("#numParte").val(data[0].numParte));      
+          numParte = $.trim($("#numParte").val(data[0].numParte));
           nomComp = $.trim($("#nomComp").val(data[0].nomComp));
           provID_PC = $.trim($("#provID_PC").val(data[0].provID_PC));
-          cantXCajas = $.trim($("#cantXCajas").val(data[0].cantXCajas)); 
+          cantXCajas = $.trim($("#cantXCajas").val(data[0].cantXCajas));
           Total = $.trim($("#Total").val(data[0].Total));
           provNombre = $.trim($("#provNombre").val(data[0].provNombre));
           cantLote = $.trim($("#cantLote").val(data[0].cantLote));
           cantCajasXTarima = $.trim($("#cantCajasXTarima").val(data[0].cantCajasXTarima));
 
-          // swal("Datos mandados y obtenidos correctamente!", "Presiona OK para continuar.", "success");
+        },
+
+        error: function(data){
+          console.log(data);
+          swal("Numero de Parte no encontrado!", "Presiona OK para continuar.", "error");
 
         }
       });
       // Estilos CSS
-      $(".modal-header").css("background-color", "#85929E");
+      $(".modal-header").css("background-color", "#85929E");      
       $(".modal-header").css("color", "white");
       $(".modal-title").text("Control de Lotes");
-      $("#checkIn").modal({backdrop: 'static', keyboard: false,show: true });
-      
-    }else{swal("Campo vacio!", "Ingrese el numero de parte nuevamente", "error");}
+      $("#checkIn").modal({
+        backdrop: 'static',
+        keyboard: false,
+        show: true
+      });
+
+    }else{
+      swal("Campo vacio!", "Ingrese el numero de parte nuevamente", "error");
+    }
 
     $("#buscar").val(''); // Limpiar input de busqueda de numero de parte.
 
-  });    
+  });
 
   $("#formCheck").submit(function(e){ // ENVIO DE PARAMETROS
     e.preventDefault();
@@ -51,20 +64,32 @@ $(document).ready(function(){
     provNombre = $.trim($("#provNombre").val());
     cantLote = $.trim($("#cantLote").val());
     cantCajasXTarima = $.trim($("#cantCajasXTarima").val());
-    
+
     $.ajax({
       url: "Modelo(conexion)/process.php",
       type: "POST",
       dataType: "json",
-      data: {numParte: numParte, nomComp: nomComp, provID_PC: provID_PC, cantCajas: cantCajas, cantXCajas: cantXCajas, Total: Total, provNombre: provNombre, cantLote: cantLote, cantCajasXTarima: cantCajasXTarima, opt: opt},
+      data:{
+        numParte: numParte,
+        nomComp: nomComp,
+        provID_PC: provID_PC,
+        cantCajas: cantCajas,
+        cantXCajas: cantXCajas,
+        Total: Total,
+        provNombre: provNombre,
+        cantLote: cantLote,
+        cantCajasXTarima: cantCajasXTarima,
+        opt: opt
+
+      },
 
       success: function(){
         swal("Datos enviados a la tabla lista_registros!!", "Presiona OK para continuar.", "success");
-        
+
       }
     });
 
     $("#checkIn").modal("hide"); // CERRAR VENTANA DEL MODAL.
-  
+
   });
 });
