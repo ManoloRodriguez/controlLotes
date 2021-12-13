@@ -73,8 +73,8 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Opciones:</h6>
             <a class="collapse-item active" href="registros.php">Registros</a>
-            <a class="collapse-item" href="buscarNumParte.php">Buscar Num. Parte</a>
-            <a class="collapse-item" href="dieCast.php">DIE CAST</a> 
+            <a class="collapse-item" href="recibos.php">Recibos</a>
+            <a class="collapse-item" href="incoming.php">INCOMING</a>
             <!-- <a class="collapse-item" href="registros.php">Registros</a> -->
           </div>
         </div>
@@ -310,8 +310,8 @@ $data = $resultado->fetchAll(PDO::FETCH_ASSOC);
                 <table id="controlLotes" class="table table-striped table-bordered table-condensed" style="width:100%">
                   <thead class="text-center">
                     <tr>
-                    <th>DensoLot</th>  
-                    <th>Numero de Parte</th>
+                      <th>DensoLot</th>
+                      <th>Numero de Parte</th>
                       <th>Nombre Componente</th>
                       <th>Proveedor_Id PC</th>
                       <th>Cantidad Cajas</th>
@@ -320,8 +320,8 @@ $data = $resultado->fetchAll(PDO::FETCH_ASSOC);
                       <th>Proveedor_Nombre</th>
                       <th>Cantidad_Lote</th>
                       <th>Cantidad de Cajas por Tarima</th>
-                      <th>Fecha</th>
-                      <th>Fecha DIE CAST</th>
+                      <th>Fecha Recibos</th>
+                      <th>Fecha Incoming</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -329,8 +329,8 @@ $data = $resultado->fetchAll(PDO::FETCH_ASSOC);
                                 foreach($data as $dat){
                               ?>
                     <tr>
-                    <td><?php echo $dat['DensoLot'] ?></td>  
-                    <td><?php echo $dat['numParte'] ?></td>
+                      <td><?php echo $dat['DensoLot'] ?></td>
+                      <td><?php echo $dat['numParte'] ?></td>
                       <td><?php echo $dat['nomComp'] ?></td>
                       <td><?php echo $dat['provID_PC'] ?></td>
                       <td><?php echo $dat['cantCajas'] ?></td>
