@@ -79,7 +79,7 @@
             <h6 class="collapse-header">Opciones:</h6>
             <a class="collapse-item" href="registros.php">Registros</a>
             <a class="collapse-item active" href="buscarNumParte.php">Buscar Num. Parte</a>
-            <!-- <a class="collapse-item" href="cards.php">Cards</a> -->
+            <a class="collapse-item" href="dieCast.php">DIE CAST</a>
             <!-- <a class="collapse-item" href="registros.php">Registros</a> -->
           </div>
         </div>
