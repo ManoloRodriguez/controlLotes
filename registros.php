@@ -41,7 +41,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Product <sup>2.0</sup></div>
+        <div class="sidebar-brand-text mx-3">Control_Lotes <sup>1.0</sup></div>
       </a>
 
       <!-- Divider -->
@@ -74,7 +74,7 @@
             <h6 class="collapse-header">Opciones:</h6>
             <a class="collapse-item active" href="registros.php">Registros</a>
             <a class="collapse-item" href="buscarNumParte.php">Buscar Num. Parte</a>
-            <!-- <a class="collapse-item" href="cards.php">Cards</a> -->
+            <a class="collapse-item" href="dieCast.php">DIE CAST</a> 
             <!-- <a class="collapse-item" href="registros.php">Registros</a> -->
           </div>
         </div>
@@ -289,7 +289,7 @@ include_once 'Modelo(conexion)/conexion.php';
 $objeto = new Conexion();
 $conexion = $objeto->Conectar();
 
-$consulta = "SELECT DensoLot, numParte, nomComp, provID_PC, cantCajas, cantXCajas, Total, provNombre, cantLote, cantCajasXTarima, Fecha FROM lista_registro ";
+$consulta = "SELECT DensoLot, numParte, nomComp, provID_PC, cantCajas, cantXCajas, Total, provNombre, cantLote, cantCajasXTarima, Fecha, FechaDieCast FROM lista_registro ";
 $resultado = $conexion->prepare($consulta);
 $resultado->execute();
 $data = $resultado->fetchAll(PDO::FETCH_ASSOC);
@@ -321,6 +321,7 @@ $data = $resultado->fetchAll(PDO::FETCH_ASSOC);
                       <th>Cantidad_Lote</th>
                       <th>Cantidad de Cajas por Tarima</th>
                       <th>Fecha</th>
+                      <th>Fecha DIE CAST</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -339,6 +340,7 @@ $data = $resultado->fetchAll(PDO::FETCH_ASSOC);
                       <td><?php echo $dat['cantLote'] ?></td>
                       <td><?php echo $dat['cantCajasXTarima'] ?></td>
                       <td><?php echo $dat['Fecha'] ?></td>
+                      <td><?php echo $dat['FechaDieCast'] ?></td>
                     </tr>
                     <?php
                                   }
