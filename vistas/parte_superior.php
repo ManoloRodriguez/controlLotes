@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>IoT Manufacturing - Dashboard</title>
+  <title>IoT Manufacturing - Control de Lotes</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -72,8 +72,8 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Opciones:</h6>
             <a class="collapse-item" href="registros.php">Registros</a>
-            <a class="collapse-item" href="buscarNumParte.php">Buscar Num. Parte</a>
-            <a class="collapse-item" href="dieCast.php">DIE CAST</a>
+            <a class="collapse-item" href="recibos.php">Recibos</a>
+            <a class="collapse-item" href="incoming.php">INCOMING</a>
             <!-- <a class="collapse-item" href="registros.php">Registros</a> -->
           </div>
         </div>
