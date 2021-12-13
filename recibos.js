@@ -5,7 +5,7 @@ $(document).ready(function(){
 
     if(buscar != ''){ // VERIFICAR QUE EL INPUT NO ESTE VACIO
       $.ajax({
-        url: "Modelo(conexion)/buscarNumParte.php",
+        url: "Modelo(conexion)/recibosNumPart.php",
         type: "POST",
         dataType: "json",
         data:{
@@ -66,7 +66,7 @@ $(document).ready(function(){
     cantCajasXTarima = $.trim($("#cantCajasXTarima").val());
 
     $.ajax({
-      url: "Modelo(conexion)/process.php",
+      url: "Modelo(conexion)/recibosProcess.php",
       type: "POST",
       dataType: "json",
       data:{
