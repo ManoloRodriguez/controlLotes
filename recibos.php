@@ -78,8 +78,8 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Opciones:</h6>
             <a class="collapse-item" href="registros.php">Registros</a>
-            <a class="collapse-item active" href="buscarNumParte.php">Buscar Num. Parte</a>
-            <a class="collapse-item" href="dieCast.php">DIE CAST</a>
+            <a class="collapse-item active" href="recibos.php">Recibos</a>
+            <a class="collapse-item" href="incoming.php">INCOMING</a>
             <!-- <a class="collapse-item" href="registros.php">Registros</a> -->
           </div>
         </div>
@@ -390,7 +390,7 @@
         <!-- datatables JS -->
         <script type="text/javascript" src="vendor/datatables/datatables.min.js"></script>
         <!-- codigo propio JS -->
-        <script type="text/javascript" src="buscarNumParte.js"></script>
+        <script type="text/javascript" src="recibos.js"></script>
 
 </body>
 
