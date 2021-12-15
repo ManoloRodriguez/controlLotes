@@ -2,7 +2,8 @@
 
 <!-- INICIO del cont principal -->
 <div class="container">
-    <h1>Pagina Principal</h1>
+    <h1 class="display-2">Control de Lotes</h1>
 </div>
 <!-- FIN del cont principal -->
+
 <?php require_once "vistas/parte_inferior.php"?>
