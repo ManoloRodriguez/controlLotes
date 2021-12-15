@@ -294,7 +294,7 @@
 
 
         <!-- MODAL REGISTRO DE HORAS -->
-        <div class="modal fade" id="densoLot" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        <div class="modal fade" id="modalDensoLot" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
           aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -311,8 +311,8 @@
 
                   <!-- Begin de informacion del empleado -->
                   <div class="form-group">
-                    <label for="DensoLot" class="col-form-label">Denso Lot:</label>
-                    <input type="text" class="form-control" id="DensoLot" disabled="disabled">
+                    <label for="densoLot" class="col-form-label">Denso Lot:</label>
+                    <input type="text" class="form-control" id="densoLot" disabled="disabled">
                   </div>
 
                   <div class="form-group">
