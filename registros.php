@@ -289,7 +289,7 @@ include_once 'Modelo(conexion)/conexion.php';
 $objeto = new Conexion();
 $conexion = $objeto->Conectar();
 
-$consulta = "SELECT DensoLot, numParte, nomComp, provID_PC, cantCajas, cantXCajas, Total, provNombre, cantLote, cantCajasXTarima, Fecha, FechaDieCast FROM lista_registro ";
+$consulta = "SELECT densoLot, numParte, nomComp, provID_PC, cantCajas, cantXCajas, Total, provNombre, cantLote, cantCajasXTarima, fechaRecibos, fechaIncoming FROM lista_registro ";
 $resultado = $conexion->prepare($consulta);
 $resultado->execute();
 $data = $resultado->fetchAll(PDO::FETCH_ASSOC);
@@ -329,7 +329,7 @@ $data = $resultado->fetchAll(PDO::FETCH_ASSOC);
                                 foreach($data as $dat){
                               ?>
                     <tr>
-                      <td><?php echo $dat['DensoLot'] ?></td>
+                      <td><?php echo $dat['densoLot'] ?></td>
                       <td><?php echo $dat['numParte'] ?></td>
                       <td><?php echo $dat['nomComp'] ?></td>
                       <td><?php echo $dat['provID_PC'] ?></td>
@@ -339,8 +339,8 @@ $data = $resultado->fetchAll(PDO::FETCH_ASSOC);
                       <td><?php echo $dat['provNombre'] ?></td>
                       <td><?php echo $dat['cantLote'] ?></td>
                       <td><?php echo $dat['cantCajasXTarima'] ?></td>
-                      <td><?php echo $dat['Fecha'] ?></td>
-                      <td><?php echo $dat['FechaDieCast'] ?></td>
+                      <td><?php echo $dat['fechaRecibos'] ?></td>
+                      <td><?php echo $dat['fechaIncoming'] ?></td>
                     </tr>
                     <?php
                                   }
