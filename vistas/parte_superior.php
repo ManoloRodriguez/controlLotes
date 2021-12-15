@@ -74,7 +74,7 @@
             <a class="collapse-item" href="registros.php">Registros</a>
             <a class="collapse-item" href="recibos.php">Recibos</a>
             <a class="collapse-item" href="incoming.php">INCOMING</a>
-            <!-- <a class="collapse-item" href="registros.php">Registros</a> -->
+
           </div>
         </div>
       </li>
@@ -88,11 +88,9 @@
       <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
       </div>
-
-
-
     </ul>
     <!-- End of Sidebar -->
+
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -107,8 +105,6 @@
           <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
             <i class="fa fa-bars"></i>
           </button>
-
-
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
