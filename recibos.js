@@ -14,21 +14,23 @@ $(document).ready(function(){
         },
 
         success: function(data){
-          // MOSTRAR VALORES EN EL MODAL
-          numParte = $.trim($("#numParte").val(data[0].numParte));
-          nomComp = $.trim($("#nomComp").val(data[0].nomComp));
-          provID_PC = $.trim($("#provID_PC").val(data[0].provID_PC));
-          cantXCajas = $.trim($("#cantXCajas").val(data[0].cantXCajas));
-          Total = $.trim($("#Total").val(data[0].Total));
-          provNombre = $.trim($("#provNombre").val(data[0].provNombre));
-          cantLote = $.trim($("#cantLote").val(data[0].cantLote));
-          cantCajasXTarima = $.trim($("#cantCajasXTarima").val(data[0].cantCajasXTarima));
+          if(data != ''){
+            // MOSTRAR VALORES EN EL MODAL
+            numParte = $.trim($("#numParte").val(data[0].numParte));
+            nomComp = $.trim($("#nomComp").val(data[0].nomComp));
+            provID_PC = $.trim($("#provID_PC").val(data[0].provID_PC));
+            cantXCajas = $.trim($("#cantXCajas").val(data[0].cantXCajas));
+            Total = $.trim($("#Total").val(data[0].Total));
+            provNombre = $.trim($("#provNombre").val(data[0].provNombre));
+            cantLote = $.trim($("#cantLote").val(data[0].cantLote));
+            cantCajasXTarima = $.trim($("#cantCajasXTarima").val(data[0].cantCajasXTarima));
 
-        },
+          }else{
+            swal("Numero de Parte no encontrado!", "Presiona OK para continuar.", "error");
 
-        error: function(data){
-          console.log(data);
-          swal("Numero de Parte no encontrado!", "Presiona OK para continuar.", "error");
+          }
+
+          $("#checkIn").modal("hide"); // CERRAR VENTANA DEL MODAL.
 
         }
       });
@@ -49,6 +51,7 @@ $(document).ready(function(){
     $("#buscar").val(''); // Limpiar input de busqueda de numero de parte.
 
   });
+  
 
   $("#formCheck").submit(function(e){ // ENVIO DE PARAMETROS
     e.preventDefault();
