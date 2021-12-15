@@ -1,5 +1,7 @@
 $(document).ready(function(){
   controlLotes = $("#controlLotes").DataTable({ // cambiar controlLotes por tablaEmpleados.
+    scrollY: '50vh',
+    scrollCollapse: true,
 
     // Para cambiar el lenguaje a español
     "language":{
