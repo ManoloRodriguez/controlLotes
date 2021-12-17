@@ -32,7 +32,7 @@ switch($opt){
     $resultado->execute();
     $data = $resultado->fetchAll(PDO::FETCH_ASSOC);
     
-    $densoLot = "SELECT DensoLot FROM lista_registro WHERE numParte = '$numParte' ";
+    $densoLot = "SELECT densoLot FROM lista_registro WHERE numParte = '$numParte' ";
     $resultado = $conexion->prepare($densoLot);
     $resultado->execute();
     $data = $resultado->fetchAll(PDO::FETCH_ASSOC);
@@ -40,8 +40,13 @@ switch($opt){
     intval($densoLot);
 
     // INGRESAR FECHA DE CAPTURA DE CANTIDAD DE CAJAS.
-    $registroFecha = "UPDATE lista_registro SET DensoLot = CONCAT('LOT', '_', Id), Fecha = NOW() WHERE numParte = '$numParte'";  
+    $registroFecha = "UPDATE lista_registro SET densoLot = CONCAT('LOT', '_', Id), fechaRecibos = NOW() WHERE numParte = '$numParte'";  
     $resultado = $conexion->prepare($registroFecha);
+    $resultado->execute();
+    $data = $resultado->fetchAll(PDO::FETCH_ASSOC);
+
+    $denLot = "SELECT densoLot FROM lista_registro ORDER BY id DESC LIMIT 1 ";
+    $resultado = $conexion->prepare($denLot);
     $resultado->execute();
     $data = $resultado->fetchAll(PDO::FETCH_ASSOC);
   
