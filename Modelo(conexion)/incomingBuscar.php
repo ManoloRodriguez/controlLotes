@@ -10,11 +10,11 @@ $opcion = (isset($_POST['opcion'])) ? $_POST['opcion'] : '';
 
 switch($opcion){
   case 1:  
-    $prueba = "SELECT * FROM lista_registro WHERE DensoLot = '$buscar' ";
+    $prueba = "SELECT * FROM lista_registro WHERE densoLot = '$buscar' ";
     $resultado = $conexion->prepare($prueba);
     $resultado->execute();
     $data = $resultado->fetchAll(PDO::FETCH_ASSOC);
-
+    
   break;
 
 }
