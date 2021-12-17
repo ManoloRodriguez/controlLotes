@@ -29,11 +29,9 @@ $(document).ready(function(){
 
           }else{
             swal("DensoLot No encontrado!!", "Presiona OK para continuar.", "error");
+            $("#modalDensoLot").modal("hide"); // CERRAR VENTANA DEL MODAL.
 
           }
-          
-          $("#modalDensoLot").modal("hide"); // CERRAR VENTANA DEL MODAL.
-
         }
       });
       
