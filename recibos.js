@@ -27,11 +27,9 @@ $(document).ready(function(){
 
           }else{
             swal("Numero de Parte no encontrado!", "Presiona OK para continuar.", "error");
+            $("#checkIn").modal("hide"); // CERRAR VENTANA DEL MODAL.
 
           }
-
-          $("#checkIn").modal("hide"); // CERRAR VENTANA DEL MODAL.
-
         }
       });
       // Estilos CSS
@@ -86,8 +84,9 @@ $(document).ready(function(){
 
       },
 
-      success: function(){
-        swal("Datos enviados a la tabla lista_registros!!", "Presiona OK para continuar.", "success");
+      success: function(data){
+        let denlot = data[0].densoLot;
+        swal("DensoLot asignado: " + denlot, "Presiona OK para continuar", "success");
 
       }
     });
