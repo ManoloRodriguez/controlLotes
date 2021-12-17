@@ -25,6 +25,9 @@
   <!-- datatables estilo bootstrap 4 CSS -->
   <link rel="stylesheet" type="text/css" href="vendor/datatables/DataTables-1.11.3/css/dataTables.bootstrap4.min.css">
 
+  <!-- SWEET ALERT PLUGIM -->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 
 </head>
 
@@ -273,107 +276,97 @@
                 </a>
               </div>
             </li>
-
           </ul>
-
         </nav>
         <!-- End of Topbar -->
-
-
         <!-- $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ -->
 
-
-        <?php
-
-include_once 'Modelo(conexion)/conexion.php';
-$objeto = new Conexion();
-$conexion = $objeto->Conectar();
-
-$consulta = "SELECT densoLot, numParte, nomComp, provID_PC, cantCajas, cantXCajas, Total, provNombre, cantLote, cantCajasXTarima, fechaRecibos, fechaIncoming FROM lista_registro ";
-$resultado = $conexion->prepare($consulta);
-$resultado->execute();
-$data = $resultado->fetchAll(PDO::FETCH_ASSOC);
-
-?>
-
         <div class="container">
-          <div class="row">
-            <div class="col-lg-12">
+          <h4 class="my-4 h4 secondary-heading">Filtro Busqueda: </h4>
+          <div class="modal-body">
+            <div class="form-group">
+              <input type="text" class="form-control" id="numParte" placeholder="Numero de Parte">
+              <input type="text" class="form-control" id="nomComp" placeholder="Nombre Componente">
+              <input type="text" class="form-control" id="provNombre" placeholder="Nombre Proveedor">
+              <button type="button" class="btn btn-dark" id="btnBuscar">Filtrar</button>
             </div>
           </div>
-        </div>
+        
 
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="table-responsive">
-                <table id="controlLotes" class="table table-striped table-bordered table-condensed" style="width:100%">
-                  <thead class="text-center">
-                    <tr>
-                      <th>DensoLot</th>
-                      <th>Numero de Parte</th>
-                      <th>Nombre Componente</th>
-                      <th>Proveedor_Id PC</th>
-                      <th>Cantidad Cajas</th>
-                      <th>Cantidad por Caja</th>
-                      <th>Total</th>
-                      <th>Proveedor_Nombre</th>
-                      <th>Cantidad_Lote</th>
-                      <th>Cantidad de Cajas por Tarima</th>
-                      <th>Fecha Recibos</th>
-                      <th>Fecha Incoming</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php
-                                foreach($data as $dat){
-                              ?>
-                    <tr>
-                      <td><?php echo $dat['densoLot'] ?></td>
-                      <td><?php echo $dat['numParte'] ?></td>
-                      <td><?php echo $dat['nomComp'] ?></td>
-                      <td><?php echo $dat['provID_PC'] ?></td>
-                      <td><?php echo $dat['cantCajas'] ?></td>
-                      <td><?php echo $dat['cantXCajas'] ?></td>
-                      <td><?php echo $dat['Total'] ?></td>
-                      <td><?php echo $dat['provNombre'] ?></td>
-                      <td><?php echo $dat['cantLote'] ?></td>
-                      <td><?php echo $dat['cantCajasXTarima'] ?></td>
-                      <td><?php echo $dat['fechaRecibos'] ?></td>
-                      <td><?php echo $dat['fechaIncoming'] ?></td>
-                    </tr>
-                    <?php
-                                  }
-                                ?>
-                  </tbody>
-                </table>
-              </div>
+      <?php include_once "Modelo(conexion)/registrosFiltro.php"; ?>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="table-responsive">
+              <table id="registroFiltro" class="table table-striped table-bordered table-condensed" style="width:100%">
+                <thead class="text-center">
+                  <tr>
+                    <th>DensoLot</th>
+                    <th>Numero de Parte</th>
+                    <th>Nombre Componente</th>
+                    <th>Proveedor_Id PC</th>
+                    <th>Cantidad Cajas</th>
+                    <th>Cantidad por Caja</th>
+                    <th>Total</th>
+                    <th>Proveedor_Nombre</th>
+                    <th>Cantidad_Lote</th>
+                    <th>Cantidad de Cajas por Tarima</th>
+                    <th>Fecha Recibos</th>
+                    <th>Fecha Incoming</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php               
+
+                foreach($data as $dat){
+                              
+              ?>
+                  <tr>
+                    <td><?php echo $dat['densoLot'] ?></td>
+                    <td><?php echo $dat['numParte'] ?></td>
+                    <td><?php echo $dat['nomComp'] ?></td>
+                    <td><?php echo $dat['provID_PC'] ?></td>
+                    <td><?php echo $dat['cantCajas'] ?></td>
+                    <td><?php echo $dat['cantXCajas'] ?></td>
+                    <td><?php echo $dat['Total'] ?></td>
+                    <td><?php echo $dat['provNombre'] ?></td>
+                    <td><?php echo $dat['cantLote'] ?></td>
+                    <td><?php echo $dat['cantCajasXTarima'] ?></td>
+                    <td><?php echo $dat['fechaRecibos'] ?></td>
+                    <td><?php echo $dat['fechaIncoming'] ?></td>
+                  </tr>
+                  <?php
+              }
+            ?>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ -->
+    <!-- $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ -->
 
-      <!-- Scroll to Top Button-->
-      <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-      </a>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
 
-      <!-- Bootstrap core JavaScript-->
-      <script src="vendor/jquery/jquery.min.js"></script>
-      <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
 
-      <!-- Core plugin JavaScript-->
-      <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-      <!-- Custom scripts for all pages-->
-      <script src="js/sb-admin-2.min.js"></script>
-
-      <!-- datatables JS -->
-      <script type="text/javascript" src="vendor/datatables/datatables.min.js"></script>
-      <!-- codigo propio JS -->
-      <script type="text/javascript" src="registros.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+    <!-- datatables JS -->
+    <script type="text/javascript" src="vendor/datatables/datatables.min.js"></script>
+    <!-- codigo propio JS -->
+    <script type="text/javascript" src="registros.js"></script>
 
 </body>
 
