@@ -7,7 +7,7 @@ $conexion = $objeto->Conectar();
 $opt = (isset($_POST['opt'])) ? $_POST['opt'] : ''; // KEY PARA REALIZAR INSTRUCCION CRUD.
 
 // VALORES DEL MODAL:
-$DensoLot = (isset($_POST['DensoLot'])) ? $_POST['DensoLot'] : '';
+$densoLot = (isset($_POST['densoLot'])) ? $_POST['densoLot'] : '';
 $numParte = (isset($_POST['numParte'])) ? $_POST['numParte'] : '';
 $nomComp = (isset($_POST['nomComp'])) ? $_POST['nomComp'] : '';
 $provID_PC = (isset($_POST['provID_PC'])) ? $_POST['provID_PC'] : '';
@@ -22,7 +22,7 @@ $cantCajasXTarima = (isset($_POST['cantCajasXTarima'])) ? $_POST['cantCajasXTari
 switch($opt){
   case 1:
     // UPDATE EN TABLA lista_registro FECHA DIE CAST.
-    $registroFecha = "UPDATE lista_registro SET FechaDieCast = NOW() WHERE DensoLot = '$DensoLot' ";  
+    $registroFecha = "UPDATE lista_registro SET fechaIncoming = NOW() WHERE densoLot = '$densoLot' ";  
     $resultado = $conexion->prepare($registroFecha);
     $resultado->execute();
     $data = $resultado->fetchAll(PDO::FETCH_ASSOC);
